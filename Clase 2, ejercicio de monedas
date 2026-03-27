@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main() {
+	int cara, seca, tiros, now;
+	float pcara, pseca;
+	
+	cara=0;
+	seca=0;
+	tiros=0;
+	
+	printf ("Por favor, ingrese 1 para cara, y 0 para seca. No ingrese otro valor.\n");
+	scanf("%d", &now);
+	
+	while (now>0 && 1>now){
+	printf ("Tu cerebro no ayudaría en nada a la ciencia. Probá de nuevo, idiota. \n");
+	scanf("%d", &now);
+	}
+	
+	while (now==1 || now==0){
+		tiros=tiros+1;
+		
+		if (now==1){
+			cara=cara+1;
+		}
+		else{
+			seca= seca+1;
+		}
+		
+		printf ("Ingrese el proximo tiro. 1:Cara, 0:Seca, Otros valores terminarán el código. \n");
+		scanf("%d", &now);
+	}
+	
+	pseca=(float)seca/(float)tiros;
+	pcara=(float)cara/(float)tiros;
+	
+	printf("Teniendo en cuenta que ha hecho %d tiros, ha obtenido una frecuencia relativa del %.2f en caras, y del %.2f en secas", tiros, pcara, pseca);
+		
+	return 0;
+}
