@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main() {
+	int num, cont, tot;
+	float prom;
+	cont=0;
+	tot=0;
+	
+	printf ("Por favor, ingrese el primer valor a promediar. Este valor debe ser distinto de 0.\n");
+	scanf("%d", &num);
+	while (num!=0){
+		if (num>0){
+			cont=cont+1;
+			tot=tot+num;
+			printf ("Ingrese el siguiente número a promediar. Ingrese 0 para mostrar el resultado final.\n");
+			scanf("%d", &num);}
+	}
+	
+	prom=(float)tot/(float)cont;
+	
+	printf ("El resultado final es %.2f", prom);
+	return 0;}
