@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+   int PIN, now, op, tot;
+  float prom;
+
+  do {
+    printf ("Ingrese el PIN.");
+    scanf ("%d", &PIN);
+  }
+  while (PIN!=99);
+
+do {
+  printf("Desea ingresar una nota a analizar?");
+  scanf("%d", &op);
+  if (op=0){
+    break;
+  }
+  else if (op=1){
+  printf ("Ingrese la nota del 1 al 10.");
+    scanf ("%d", &now);
+    if (now>10 && now<1)
+  }
+}
+while (op!=0);
+    return 0;
+}
