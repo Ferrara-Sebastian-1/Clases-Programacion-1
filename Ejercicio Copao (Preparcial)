@@ -1,0 +1,88 @@
+/*Se pide:
+-Cargar un arreglo de 10 elementos usando una estructura repetitiva
+-Declarar la dimensiòn del arreglo usando DEFINE.
+-Usar un procedimiento parea mostrar los elementos del arreglo por pantalla.
+-Usando una funciòn, calcular la cantidad de numeros primos.
+-Usando un procedimiento para mostrar por pantalla los elementos del arreglo en sentido inverso.
+-Ingresar un entero por teclado e indicar la cantidad de veces que aparece en el arreglo
+*/
+
+#include <stdio.h>
+#define Row 10
+
+
+void mostrar (int a[]);
+void Inver (int a[]);
+int IsPrime (int a[]);
+
+int main() {
+	
+	int Arr [Row];
+	int i, a, cont=0, p;
+	
+	for (i=0;i<Row;i++){
+		printf ("Ingrese el valor para la posición %i: ", i+1);
+		scanf ("%d", &Arr[i]);
+	}
+	
+	mostrar (Arr);
+	
+	p=IsPrime (Arr);
+	
+	printf ("\n\nLa cantidad de primos en su Array es de %d.", p);
+	
+	Inver (Arr);
+	
+	printf ("\n\nIngrese un entero por teclado para detectar en el Array... ");
+	scanf ("%d", &a);
+	
+	for (i=0; i<Row;i++){
+		if (a==Arr[i]){
+			cont++;
+		}
+	}
+	
+	printf ("\nLa cantidad de veces que %d aparece en el Array es igual a %d", a, cont);
+	
+	return 0;
+}
+
+void mostrar (int a[]){
+	int i;
+	for (i=0;i<Row;i++){
+		printf ("\nElemento %d: %d", i+1, a[i]);
+	}
+}
+	
+int IsPrime (int a[]){
+	int i, x, count=0, primo;
+	
+	for (i=0; i<10;i++){
+		
+		primo=1;
+		
+		if (a[i]<=1){
+			primo  =0;
+		}
+		
+		for (x=2; x<a[i]; x++){
+			if (a[i]%x==0){
+				primo=0;
+				break;
+			}
+		}
+		
+		if (primo==1){
+			count++;
+		}
+	}
+	return count;
+}
+void Inver (int a[]){
+	int i;
+	printf ("\n\nLos elementos del Array dispuestos en orden inverso son: \n");
+	
+	for (i=0;i<Row;i++){
+		printf ("%d ", a[Row-(i+1)]);
+	}
+}
