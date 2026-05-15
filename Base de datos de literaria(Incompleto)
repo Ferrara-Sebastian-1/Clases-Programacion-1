@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+#define	NumLMax 1000
+#define	NumAMax 1000
+#define	TxTMax 100
+
+struct AUTOR {
+	int ID[NumAMax];
+	char nombres[TxTMax];
+	char apellidos[TxTMax];
+	char nacionalidad[TxTMax];
+	int nacimiento[3];
+	bool estado;
+	int publicaciones;
+};
+
+struct LIBRO {
+	char titulo[TxTMax];
+	struct AUTOR autor;
+	char editorial[TxTMax];
+	char genero[TxTMax];
+	int isbn;
+	int publicacion;
+};
+
+/*
+Void 1
+Void 1
+Void 1
+Void 1
+Void 1
+Void 1*/
+
+int main() {
+	int Opc=0, Iint, Ichar[TxTMax], IBool, i;
+	
+	printf ("Bienvenido a la base de datos.");
+	
+	do{
+		printf ("\n\n		-Menú de Opciones-");
+		printf ("\n	**********************************");
+		printf ("\n1. Consultar listado de Autores y sus datos.");
+		printf ("\n2. Agregar un autor al listado de Autores.");
+		printf ("\n3. Eliminar a un autor, asi como todos los libros a su nombre.");
+		printf ("\n4. Consultar listado de Libros.");
+		printf ("\n5. Agregar un libro al listado de Libros");
+		printf ("\n6. Eliminar libro especifico.");
+		printf ("\n0. Salir del sistema.");
+		printf ("\n\n Por favor ingrese el número de la opción que ha seleccionado: ");
+		scanf (" %d",&Opc);
+		switch (Opc){
+			case 1:{//Consultar Autores
+				break;
+			};	
+			case 2:{//Agregar autor
+				for (){
+					
+				}
+				break;
+			};
+			case 3:{//Eliminar autor y todos sus libros
+				break;
+			};
+			case 4:{//Consultar Libros
+				break;
+			};
+			case 5:{//Agregar Libro
+				break;
+			};
+			case 6:{//Eliminar Libro
+				break;
+			};
+		}
+	} while(Opc!=0);
+	return 0;
+}
