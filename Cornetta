@@ -1,0 +1,117 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Nodo
+{
+    int dato;
+    struct Nodo *sig;
+} Nodo;
+
+Nodo *crearNodo(int dato)
+{
+    Nodo *nuevoNodo = (Nodo *)malloc(sizeof(Nodo));
+    nuevoNodo->dato = dato;
+    nuevoNodo->sig = NULL;
+    return nuevoNodo;
+}
+
+void push(Nodo **cabeza, int dato)
+{
+    Nodo *nuevoNodo = crearNodo(dato);
+    nuevoNodo->sig = *cabeza;
+    *cabeza = nuevoNodo;
+}
+
+void pop(Nodo **cabeza)
+{
+    if (*cabeza == NULL)
+    {
+        printf("La pila está vacía.\n");
+        return;
+    }
+    Nodo *temp = *cabeza;
+    *cabeza = (*cabeza)->sig;
+    free(temp);
+}
+
+void enqueue(Nodo **cabeza, int dato)
+{
+    Nodo *nuevoNodo = crearNodo(dato);
+    if (*cabeza == NULL)
+    {
+        *cabeza = nuevoNodo;
+        return;
+    }
+    Nodo *temp = *cabeza;
+    while (temp->sig != NULL)
+    {
+        temp = temp->sig;
+    }
+    temp->sig = nuevoNodo;
+}
+
+void dequeue(Nodo **cabeza)
+{
+    if (*cabeza == NULL)
+    {
+        printf("La cola está vacía.\n");
+        return;
+    }
+    Nodo *temp = *cabeza;
+    *cabeza = (*cabeza)->sig;
+    free(temp);
+}
+
+void imprimirlista(Nodo *cabeza)
+{
+    Nodo *temp = cabeza;
+    while (temp != NULL)
+    {
+        printf("%d -> ", temp->dato);
+        temp = temp->sig;
+    }
+    printf("\n");
+}
+
+Nodo *buscarNodo(Nodo *cabeza, int dato)
+{
+    while (cabeza != NULL)
+    {
+        if (cabeza->dato == dato)
+        {
+            return cabeza;
+        }
+        cabeza = cabeza->sig;
+    }
+    return NULL;
+}
+
+void insertarEnPosicion(Nodo **cabeza, int dato, int posicion)
+{
+    Nodo *nuevoNodo = crearNodo(dato);
+    if (posicion == 0)
+    {
+        nuevoNodo->sig = *cabeza;
+        *cabeza = nuevoNodo;
+        return;
+    }
+    Nodo *temp = *cabeza;
+    for (int i = 0; i < posicion - 1 && temp != NULL; i++)
+    {
+        temp = temp->sig;
+    }
+    if (temp == NULL)
+    {
+        printf("Posición fuera de rango.\n");
+        free(nuevoNodo);
+        return;
+    }
+    nuevoNodo->sig = temp->sig;
+    temp->sig = nuevoNodo;
+}
+
+int main()
+{
+
+    return 0;
+}
